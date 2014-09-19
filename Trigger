@@ -1,0 +1,4 @@
+// Replace ? to whatever the maxspeed is
+// Don't forget to adjust the trigger area
+
+this && (speed player) > ? && {_x iskindof "car"} count thislist > 0 && (vehicle player) in thislist && (driver vehicle player == player)
