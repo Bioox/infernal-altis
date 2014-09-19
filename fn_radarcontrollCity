@@ -1,69 +1,55 @@
-/*calculate the speed of a vehicle if the speed is to high it shows a flash.
-It subtracts the penalty directly from the bank account
+/*
+Does what it has to be done.
 author: "theInfinit"
 edited by: Genetics
 */
 
-private["_currentspeed","_maxspeed","_raser"];
+private["_vehspeed","_maxspeed","_driver","_veh"];
+_vehspeed = speed player;
 _maxspeed = 50;
-_raser = [_this,1,Objnull,[Objnull]] call BIS_fnc_param;
-//use in Mission.sqm  with trigger
-//nul = [] execVM "fn_radarcontrollCity.sqf";
-if(playerSide != civilian)exitWith{};
-if(life_radar) exitWith{};
-if (!(vehicle player != player)) exitWith {}; 
-if ((driver (vehicle player) != player)) exitWith {}; 
-if (((getPos player)select 2) > 30) exitWith{};
-if (
-	((player distance (getMarkerPos "radar_1")) >= 10)&&((player distance (getMarkerPos "radar_2")) >= 10) 
-	&&((player distance (getMarkerPos "radar_3")) >= 10)&&((player distance (getMarkerPos "radar_4")) >= 10)	
-	&&((player distance (getMarkerPos "radar_5")) >= 10)&&((player distance (getMarkerPos "radar_6")) >= 10)
-	&&((player distance (getMarkerPos "radar_7")) >= 10)&&((player distance (getMarkerPos "radar_8")) >= 10)
-	&&((player distance (getMarkerPos "radar_9")) >= 10)&&((player distance (getMarkerPos "radar_10")) >= 10)
-	&&((player distance (getMarkerPos "radar_11")) >= 10)&&((player distance (getMarkerPos "radar_12")) >= 10)
-	&&((player distance (getMarkerPos "radar_13")) >= 10)&&((player distance (getMarkerPos "radar_14")) >= 10)
-	&&((player distance (getMarkerPos "radar_15")) >= 10)&&((player distance (getMarkerPos "radar_0")) >= 10)
-	)exitWith{};
-life_radar = true;
-_currentspeed = speed player;
+_driver = driver _x;
+_veh = vehicle player;
 
-if(_currentspeed >= (_maxspeed + 55)) then   
+// Series of annoying and maybe useless checks as always
+if(vehicle player != player) exitWith {}; 
+if(driver vehicle player != player) exitWith {}; 
+if(getPosATL _veh select 2 > 30) exitWith{hint "Lucky boy, choppers can not be flashed !";}; // Message if a chopper passes nearby
+if(side _driver == west) exitWith {}; // If the driver is a cop => No flash
+if(_veh getVariable "siren") exitWith {}; // Second check for cops
+
+// Checks the speed and do the right stuff
+if((_vehspeed >= (_maxspeed + 55)) then   
 {
-	hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $9000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[_currentspeed]];
+	hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $9000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[_vehspeed]];
 	playSound "Camera_Shot_Sound_Effect";
 	titleText["Geblitzt","WHITE OUT"];                       
 	titleText["","WHITE IN"];
-[[getPlayerUID _raser,name _raser,"100"],"life_fnc_wantedAdd",false,false] spawn life_fnc_MP; //add to wanted list
-} 
+        [[getPlayerUID _driver,name _driver,"100"],"life_fnc_wantedAdd",false,false]] spawn life_fnc_MP; // Adds player to the wanted list
+}; 
 
-if(_currentspeed >= (_maxspeed + 40)) then   
+if((_vehspeed >= (_maxspeed + 40)) then   
 {
 	hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $5000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[_currentspeed]];
 	playSound "Camera_Shot_Sound_Effect";
 	titleText["Geblitzt","WHITE OUT"];                       
 	titleText["","WHITE IN"];
-[[getPlayerUID _raser,name _raser,"101"],"life_fnc_wantedAdd",false,false] spawn life_fnc_MP; //add to wanted list
-} 
+        [[getPlayerUID _driver,name _driver,"101"],"life_fnc_wantedAdd",false,false]] spawn life_fnc_MP; // Adds player to the 
+};
 
-if(_currentspeed >= (_maxspeed + 25)) then 
+if((_vehspeed >= (_maxspeed + 25)) then 
 	{
 	hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $5000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[_currentspeed]];
 	playSound "Camera_Shot_Sound_Effect";
 	titleText["Geblitzt","WHITE OUT"];                       
 	titleText["","WHITE IN"];
-[[getPlayerUID _raser,name _raser,"102"],"life_fnc_wantedAdd",false,false] spawn life_fnc_MP; //add to wanted list
-	} 
+        [[getPlayerUID _driver,name _driver,"102"],"life_fnc_wantedAdd",false,false]] spawn life_fnc_MP; // Adds player 
+};
 
-if(_currentspeed >= (_maxspeed + 10)) then
+if((_vehspeed >= (_maxspeed + 10)) then
 {
 	hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $5000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[_currentspeed]];
 	playSound "Camera_Shot_Sound_Effect";
 	titleText["Geblitzt","WHITE OUT"];                       
 	titleText["","WHITE IN"];
-[[getPlayerUID _raser,name _raser,"103"],"life_fnc_wantedAdd",false,false] spawn life_fnc_MP; //add to wanted list
-}
-
-	
-
-sleep 10;
-life_radar = false;
+        [[getPlayerUID _driver,name _driver,"103"],"life_fnc_wantedAdd",false,false]] spawn life_fnc_MP; // Adds
+};
