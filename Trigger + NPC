@@ -9,3 +9,6 @@ null = [[],"life_fnc_radarcontrollCity",player,false] spawn life_fnc_MP;
 
 /////////// NPC (which will be like the radar in the real life)
 this allowDamage false; this stop true; this disableAI "AUTOTARGET"; this disableAI "TARGET"; this disableAI "MOVE"; this disableAI "FSM"; removeAllWeapons this;this enableSimulation false;
+/////////// Object
+this allowDamage false; this enableSimulation false; this hideObject true;
+
