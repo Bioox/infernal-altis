@@ -45,7 +45,7 @@ if((_vehspeed >= (_maxspeed + 25)) then
         [[getPlayerUID _driver,name _driver,"102"],"life_fnc_wantedAdd",false,false]] spawn life_fnc_MP; // Adds player 
 };
 
-if((_vehspeed >= (_maxspeed + 10)) then
+if((_vehspeed >= (_maxspeed + 10) && (_vehspeed  < 75)) then
 {
 	hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $5000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[_currentspeed]];
 	playSound "Camera_Shot_Sound_Effect";
