@@ -7,7 +7,7 @@ edited by: Genetics
 private["_vehspeed","_maxspeed","_driver","_veh"];
 _vehspeed = speed player;
 _maxspeed = 50;
-_driver = driver _x;
+_driver = driver player;
 _veh = vehicle player;
 
 // Series of annoying and maybe useless checks as always
@@ -27,7 +27,7 @@ if((_vehspeed >= (_maxspeed + 55)) then
         [[getPlayerUID _driver,name _driver,"100"],"life_fnc_wantedAdd",false,false]] spawn life_fnc_MP; // Adds player to the wanted list
 }; 
 
-if((_vehspeed >= (_maxspeed + 40)) then   
+if((_vehspeed >= (_maxspeed + 40)) && (_vehspeed < 105)) then   
 {
 	hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $5000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[_currentspeed]];
 	playSound "Camera_Shot_Sound_Effect";
@@ -36,7 +36,7 @@ if((_vehspeed >= (_maxspeed + 40)) then
         [[getPlayerUID _driver,name _driver,"101"],"life_fnc_wantedAdd",false,false]] spawn life_fnc_MP; // Adds player to the 
 };
 
-if((_vehspeed >= (_maxspeed + 25)) then 
+if((_vehspeed >= (_maxspeed + 25) && (_vehspeed < 90)) then 
 	{
 	hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $5000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[_currentspeed]];
 	playSound "Camera_Shot_Sound_Effect";
