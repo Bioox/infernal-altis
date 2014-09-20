@@ -5,7 +5,7 @@
 // Condition
 this && (speed player) > ? && {_x iskindof "car"} count thislist > 0 && (vehicle player) in thislist && (driver vehicle player == player)
 // On act
-nul = [[],"life_fnc_",player,false] spawn life_fnc_MP;
+nul = [[],"life_fnc_radarcontrollCity",player,false] spawn life_fnc_MP;
 
 /////////// NPC (which will be like the radar in the real life)
 this allowDamage false; this stop true; this disableAI "AUTOTARGET"; this disableAI "TARGET"; this disableAI "MOVE"; this disableAI "FSM"; removeAllWeapons this;this enableSimulation false;
