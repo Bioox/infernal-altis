@@ -12,7 +12,7 @@ _driver = driver player;
 _veh = vehicle player;
 
 // Serie of checks
-if(getPosATL _veh select 2 > 30) exitWith {}; // Message if a chopper passes nearby
+if(getPosATL _veh select 2 > 30) exitWith {}; // If the vehicle is a chopper and he's flying nearby, does nothing
 if(side _driver == west) exitWith {}; // If the driver is a cop => No flash
 if((_veh getVariable "siren")) exitWith {}; // Second check for cops
 
