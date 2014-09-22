@@ -1,7 +1,8 @@
 /*
-Does what it has to be done.
-author: "theInfinit"
-edited by: Genetics
+File: fn_radarControlCity.sqf
+Description: Does what it has to be done.
+Author: "theInfinit"
+Edited by: Genetics
 */
 
 private["_vehspeed","_maxspeed","_driver","_veh"];
