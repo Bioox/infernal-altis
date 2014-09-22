@@ -19,7 +19,7 @@ if((_veh getVariable "siren")) exitWith {}; // Second check for cops
 // Checks the speed and do the right stuff
 if(round _vehspeed >= (_maxspeed + 55)) then // If speed is equal or more than 105
 {
-    hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $9000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[round _vehspeed]];
+        hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $9000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[round _vehspeed]];
 	playSound "Camera_Shot_Sound_Effect";
 	titleText["Geblitzt","WHITE OUT"];
 	titleText["","WHITE IN"];
@@ -28,7 +28,7 @@ if(round _vehspeed >= (_maxspeed + 55)) then // If speed is equal or more than 1
 
 if((round _vehspeed >= (_maxspeed + 40)) && (round _vehspeed < 105)) then // If speed is between 90 and 104
 {
-    hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $5000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[round _vehspeed]];
+        hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $5000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[round _vehspeed]];
         playSound "Camera_Shot_Sound_Effect";
 	titleText["Geblitzt","WHITE OUT"];
 	titleText["","WHITE IN"];
@@ -37,7 +37,7 @@ if((round _vehspeed >= (_maxspeed + 40)) && (round _vehspeed < 105)) then // If 
 
 if((round _vehspeed >= (_maxspeed + 25)) && (round _vehspeed < 90)) then // If speed is between 75 and 89
 {
-    hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $5000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[round _vehspeed]];
+        hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $5000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[round _vehspeed]];
         playSound "Camera_Shot_Sound_Effect";
 	titleText["Geblitzt","WHITE OUT"];
 	titleText["","WHITE IN"];
@@ -46,7 +46,7 @@ if((round _vehspeed >= (_maxspeed + 25)) && (round _vehspeed < 90)) then // If s
 
 if((round _vehspeed >= (_maxspeed + 10)) && (round _vehspeed < 75)) then // If speed is between 60 and 74
 {
-    hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $5000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[round _vehspeed]];
+        hint format[ "Sie wurden mit %1 km/h gemessen 50km/h sind erlaubt. Ihnen wurden $5000 Strafe abgezogen. Halten sie sich an die Geschwindigkeitbegrenzung!",[round _vehspeed]];
         playSound "Camera_Shot_Sound_Effect";
 	titleText["Geblitzt","WHITE OUT"];
 	titleText["","WHITE IN"];
