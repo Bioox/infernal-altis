@@ -1,5 +1,5 @@
 /////////// TRIGGER
-// Don't forget to adjust the trigger area & to set activation => Civil & to set it to Repeatedly
+// Don't forget to adjust the trigger area & to set activation => Civilian & to set it to Repeatedly
 
 // Condition
 this && (speed player) > 50 && {_x iskindof "car"} count thislist > 0 && (vehicle player) in thislist && (driver vehicle player == player)
