@@ -4,6 +4,6 @@
 // Condition
 this && (speed player) > 50 && {_x iskindof "car"} count thislist > 0 && (vehicle player) in thislist && (driver vehicle player == player)
 // On act
-nul = [[],"life_fnc_radarControlCity",player,false] spawn life_fnc_MP;
+nul = execVM "radarControlCity" spawn life_fnc_MP;
 
 
